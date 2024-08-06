@@ -2,7 +2,6 @@
 import { computed, ref } from 'vue';
 import { useI18n } from 'dashboard/composables/useI18n';
 
-const { t } = useI18n();
 const props = defineProps({
   text: {
     type: String,
@@ -13,7 +12,7 @@ const props = defineProps({
     default: 120,
   },
 });
-
+const { t } = useI18n();
 const showMore = ref(false);
 
 const textToBeDisplayed = computed(() => {

@@ -4,7 +4,6 @@ import Thumbnail from 'dashboard/components/widgets/Thumbnail.vue';
 import { useStoreGetters } from 'dashboard/composables/store';
 import { useI18n } from 'dashboard/composables/useI18n';
 
-const getters = useStoreGetters();
 const props = defineProps({
   macro: {
     type: Object,
@@ -12,7 +11,9 @@ const props = defineProps({
   },
 });
 
-defineEmits(['edit', 'delete']);
+defineEmits(['delete']);
+
+const getters = useStoreGetters();
 const { t } = useI18n();
 
 const createdByName = computed(() => {
@@ -43,13 +44,13 @@ const addAccountScoping = url => {
     <td class="py-4 pr-4 truncate">{{ macro.name }}</td>
     <td class="py-4 pr-4">
       <div v-if="macro.created_by" class="flex items-center">
-        <thumbnail :username="createdByName" size="24px" />
+        <Thumbnail :username="createdByName" size="24px" />
         <span class="mx-2">{{ createdByName }}</span>
       </div>
     </td>
     <td class="py-4 pr-4">
       <div v-if="macro.updated_by" class="flex items-center">
-        <thumbnail :username="updatedByName" size="24px" />
+        <Thumbnail :username="updatedByName" size="24px" />
         <span class="mx-2">{{ updatedByName }}</span>
       </div>
     </td>
