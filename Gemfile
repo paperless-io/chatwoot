@@ -30,7 +30,7 @@ gem 'haikunator'
 # Template parsing safely
 gem 'liquid'
 # Parse Markdown to HTML
-gem 'commonmarker'
+gem 'commonmarker', '~> 1.1'
 # Validate Data against JSON Schema
 gem 'json_schemer'
 # Rack middleware for blocking & throttling abusive requests

@@ -27,6 +27,7 @@ RUN apk update && apk add --no-cache \
   postgresql-client \
   nodejs=20.15.1-r0 \
   git \
+  curl \
   && mkdir -p /var/app \
   && gem install bundler
 
@@ -52,6 +53,9 @@ COPY Gemfile Gemfile.lock ./
 # https://github.com/chatwoot/chatwoot/issues/4045
 RUN apk update && apk add --no-cache build-base musl ruby-full ruby-dev gcc make musl-dev openssl openssl-dev g++ linux-headers xz vips
 RUN bundle config set --local force_ruby_platform true
+
+# Needed to build cdylibs on x86_64-unknown-linux-musl targets
+ENV RUSTFLAGS="-C target-feature=-crt-static"
 
 # Do not install development or test gems in production
 RUN if [ "$RAILS_ENV" = "production" ]; then \
