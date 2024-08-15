@@ -26,7 +26,8 @@ class ChatwootMarkdownRenderer
     end
 
     # We need unsafe here because we inserted html nodes
-    html = doc.to_html(options: { render: { unsafe: true } })
+    html = doc.to_html(options: { render: { unsafe: true } },
+                       plugins: { syntax_highlighter: { theme: 'InspiredGitHub' } })
     render_as_html_safe(html)
   end
 
