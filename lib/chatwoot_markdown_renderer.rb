@@ -22,6 +22,8 @@ class ChatwootMarkdownRenderer
       if node.type == :link
         new_node = render_embedded_content(node)
         node.replace(new_node) if new_node.present?
+      elsif node.type == :code_block
+        node.fence_info = 'js' if node.fence_info.empty?
       end
     end
 
