@@ -4,7 +4,7 @@ class ChatwootMarkdownRenderer
   YOUTUBE_REGEX = %r{https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([^&/]+)}
   LOOM_REGEX = %r{https?://(?:www\.)?loom\.com/share/([^&/]+)}
   VIMEO_REGEX = %r{https?://(?:www\.)?vimeo\.com/(\d+)}
-  MP4_REGEX = %r{https?://(?:www\.)?.+\.(mp4)}
+  MP4_REGEX = %r{https?://(?:www\.)?.+\.(mp4|mov)}
 
   def initialize(content)
     @content = content
