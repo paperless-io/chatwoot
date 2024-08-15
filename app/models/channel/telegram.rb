@@ -121,7 +121,7 @@ class Channel::Telegram < ApplicationRecord
     text = CGI.escapeHTML(text.gsub("\n", '<br>'))
 
     # convert markdown to html
-    html = CommonMarker.render_html(text).strip
+    html = Commonmarker.to_html(text).strip
 
     # remove all html tags except b, strong, i, em, u, ins, s, strike, del, a, code, pre, blockquote
     stripped_html = Rails::HTML5::SafeListSanitizer.new.sanitize(html, tags: %w[b strong i em u ins s strike del a code pre blockquote],
