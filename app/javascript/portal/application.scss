@@ -39,3 +39,32 @@ body {
     }
   }
 }
+
+$callout-bg-color: #eee;
+$callout-fg-color: #000;
+
+article {
+  blockquote {
+    background: $callout-bg-color;
+    border-radius: 12px;
+    color: $callout-fg-color !important;
+    padding: 1px 20px;
+
+    p {
+      clear: left;
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    p:first::first-letter {
+      float: left;
+      font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+      margin-left: -2rem;
+    }
+
+    p::before,
+    p::after {
+      content: '' !important;
+    }
+  }
+}
