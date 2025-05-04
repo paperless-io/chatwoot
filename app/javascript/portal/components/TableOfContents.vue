@@ -94,9 +94,12 @@ export default {
 </script>
 
 <template>
-  <div class="hidden lg:block flex-1 py-6 scroll-mt-24 pl-4">
-    <div v-if="rows.length > 0" class="sticky top-24 py-2 overflow-auto">
-      <nav class="max-w-2xl">
+  <div class="hidden lg:contents flex-1 py-6 scroll-mt-24">
+    <div
+      v-if="rows.length > 0"
+      class="sticky top-24 py-2 overflow-auto min-w-48 pl-4 mt-6"
+    >
+      <nav>
         <ol
           role="list"
           class="flex flex-col gap-2 text-base border-l-2 border-solid border-slate-100 dark:border-slate-800"
@@ -107,7 +110,7 @@ export default {
             class="leading-6 border-l-2 relative -left-0.5 border-solid"
             :class="elementBorderStyles(element)"
           >
-            <p class="py-1 px-3" :class="getClassName(element)">
+            <p class="py-1 pl-3" :class="getClassName(element)">
               <a
                 :href="`#${element.slug}`"
                 data-turbolinks="false"
