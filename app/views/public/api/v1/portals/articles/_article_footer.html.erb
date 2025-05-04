@@ -1,0 +1,17 @@
+<div id="cw-article-footer" class="flex max-w-5xl w-full px-4 md:px-8 mx-auto <%= @is_plain_layout_enabled ? 'py-4' : 'pt-0 pb-12' %>">
+  <div class="flex flex-col items-start justify-between w-full pt-6">
+    <div class="flex flex-row items-center gap-1">
+      <div class="flex flex-row items-center -space-x-2">
+        <%= render "public/api/v1/portals/thumbnail", author: @article.author, size: 5 %>
+      </div>
+      <span class="text-base text-slate-600 dark:text-slate-400">
+        <%= "#{I18n.t('public_portal.common.by_long')} #{@article.author.name}" %>
+      </span>
+    </div>
+    <div class="flex items-start space-x-1">
+        <span class="flex items-center text-base text-slate-600 dark:text-slate-400">
+          <%= I18n.t('public_portal.common.last_updated_on', last_updated_on: I18n.l(@article.updated_at, format: :date)) %>
+        </span>
+    </div>
+  </div>
+</div>
