@@ -35,7 +35,7 @@ class ChatwootMarkdownRenderer
 
   def render_markdown_to_plain_text
     html = Commonmarker.to_html(@content)
-    html.to_plaintext
+    ActionController::Base.helpers.strip_tags(html)
   end
 
   private
