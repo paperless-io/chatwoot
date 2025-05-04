@@ -767,6 +767,51 @@ useEmitter(BUS_EVENTS.INSERT_INTO_RICH_EDITOR, insertContentIntoEditor);
     ol li {
       @apply list-item list-decimal;
     }
+
+    $callout-bg-color: #f1f1f3;
+    $callout-fg-color: #393d40;
+
+    blockquote {
+      background: $callout-bg-color;
+      border: 0 none;
+      border-radius: 12px;
+      color: $callout-fg-color !important;
+      padding: 1px 20px;
+
+      p {
+        font-style: normal;
+        font-weight: normal;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    pre {
+      background: $callout-bg-color !important;
+      color: $callout-fg-color !important;
+      font-weight: 400;
+      border-radius: 12px;
+    }
+
+    code {
+      background: $callout-bg-color !important;
+      color: $callout-fg-color !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 600 !important;
+
+      &:not(:first-child):not(& + h1):not(& + h2):not(& + h3):not(& + h4):not(
+          & + h5
+        ):not(& + h6) {
+        margin-top: 3rem;
+      }
+    }
   }
 }
 

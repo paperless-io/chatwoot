@@ -35,8 +35,8 @@ body {
   }
 }
 
-$callout-bg-color: #eee;
-$callout-fg-color: #000;
+$callout-bg-color: #f1f1f3;
+$callout-fg-color: #393d40;
 
 article {
   blockquote {
@@ -46,20 +46,55 @@ article {
     padding: 1px 20px;
 
     p {
-      clear: left;
       font-style: normal;
       font-weight: normal;
+      hyphens: auto;
     }
 
-    p:first::first-letter {
-      float: left;
-      font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-      margin-left: -2rem;
+    > p {
+      clear: left;
+      padding-left: 2rem;
+
+      &::first-letter {
+        float: left;
+        font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        margin-left: -2rem;
+      }
     }
 
     p::before,
     p::after {
       content: '' !important;
+      display: none;
     }
   }
 }
+
+.prose {
+  pre {
+    background: $callout-bg-color !important;
+    border-radius: 12px;
+    color: $callout-fg-color !important;
+    font-weight: 400;
+  }
+
+  code {
+    background: $callout-bg-color !important;
+    color: $callout-fg-color !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600 !important;
+
+    &:not(:first-child):not(& + h1):not(& + h2):not(& + h3):not(& + h4):not(& + h5):not(& + h6) {
+      margin-top: 4rem;
+    }
+  }
+}
+
+
