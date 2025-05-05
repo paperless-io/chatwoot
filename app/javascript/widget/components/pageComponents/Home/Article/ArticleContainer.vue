@@ -15,6 +15,8 @@ const { prefersDarkMode } = useDarkMode();
 
 const portal = computed(() => window.chatwootWebChannel.portal);
 
+const widgetColor = useMapGetter('appConfig/getWidgetColor');
+
 const popularArticles = useMapGetter('article/popularArticles');
 const articleUiFlags = useMapGetter('article/uiFlags');
 
@@ -70,6 +72,32 @@ onMounted(() => fetchArticles());
 </script>
 
 <template>
+  <div
+    class="flex flex-col gap-3 w-full shadow outline-1 outline outline-n-container rounded-xl bg-n-background dark:bg-n-solid-2 px-5 py-4"
+  >
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex flex-col gap-1">
+        <div class="font-medium text-n-slate-12">
+          {{ $t('PORTAL.TITLE') }}
+        </div>
+        <div class="text-n-slate-11">
+          {{ $t('PORTAL.SUBTITLE') }}
+        </div>
+      </div>
+      <div class="flex" />
+    </div>
+    <a
+      :href="'https://' + portal.custom_domain"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1 font-medium text-n-slate-12"
+      :style="{ color: widgetColor }"
+    >
+      <span>{{ $t('PORTAL.LINK') }}</span>
+      <i class="i-lucide-chevron-right size-5 mt-px" />
+    </a>
+  </div>
+
   <div
     v-if="portal && (articleUiFlags.isFetching || !!popularArticles.length)"
     class="w-full shadow outline-1 outline outline-n-container rounded-xl bg-n-background dark:bg-n-solid-2 px-5 py-4"

@@ -114,7 +114,10 @@
   "PORTAL": {
     "POPULAR_ARTICLES": "Beliebte Artikel",
     "VIEW_ALL_ARTICLES": "Alle Artikel anzeigen",
-    "IFRAME_LOAD_ERROR": "Beim Laden des Artikels ist ein Fehler aufgetreten. Bitte aktualisieren Sie die Seite und versuchen Sie es erneut."
+    "IFRAME_LOAD_ERROR": "Beim Laden des Artikels ist ein Fehler aufgetreten. Bitte aktualisieren Sie die Seite und versuchen Sie es erneut.",
+    "TITLE": "Help Center",
+    "SUBTITLE": "Schnelle Antworten auf die häufigsten Fragen",
+    "LINK": "Help Center öffnen"
   },
   "ATTACHMENTS": {
     "image": {
